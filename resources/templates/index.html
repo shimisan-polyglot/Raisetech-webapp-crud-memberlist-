@@ -13,8 +13,8 @@
     <span th:text="${greeting}">greeting</span>
   </p>
   <p>
-    <!-- データベースから取得したレコードをここに表示します -->
-    <span th:text="${phoneBook}">phoneBook がここに表示されます</span>
+    <!-- データベースから取得した値が表示される -->
+    <span th:text="${phoneBook}"></span>
   </p>
   <table border="1">
   <tr>
@@ -26,10 +26,10 @@
   
 
   <td>
-   <span th:text="${phoneBook.id}">phoneBook がここに表示されます</span>
+   <span th:text="${phoneBook.id}">phoneBook </span>
     </td>
     <td>
-   <span th:text="${phoneBook.name}">phoneBook がここに表示されます</span>
+   <span th:text="${phoneBook.name}"></span>
     </td>
     <td>
  <form th:action="@{/}" method="post">
