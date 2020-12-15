@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/css/styles.css}" href="/css/styles.css">
+<title>データベース接続おめでとう!</title>
+</head>
+<body>
+  <h1>ようこそ!</h1>
+  <p>
+    <span th:text="${greeting}">greeting</span>
+  </p>
+  <p>
+    <!-- データベースから取得したレコードをここに表示します -->
+    <span th:text="${phoneBook}">phoneBook がここに表示されます</span>
+  </p>
+  <table border="1">
+  <tr>
+   <tr>
+  <th>ID</th>
+    <th>名前</th>
+     <th>削除</th>
+  </tr>
+  
+
+  <td>
+   <span th:text="${phoneBook.id}">phoneBook がここに表示されます</span>
+    </td>
+    <td>
+   <span th:text="${phoneBook.name}">phoneBook がここに表示されます</span>
+    </td>
+    <td>
+ <form th:action="@{/}" method="post">
+   <input type="submit" class="btn btn-outline-danger" name="delete_id" value="削除">
+     <input type="hidden" name="id" th:value="${phoneBook.id}">
+  </form>
+    </td>
+   </tr>
+   </table>
+    <a href="list.html">次のページ</a>
+    
+    <div>
+<form method="post" action="/insert" th:object="${formInsert}">
+<p>Insert</p>
+<input type="text" name="name" size="50" placeholder="名前"></input>
+<input type="text" name="age" size="50" placeholder="電話番号"></input>
+<input type="submit" value="Insert"></input>
+</form>
+</div>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>名前</th>
+<th>電話番号</th>
+</tr>
+</thead>
+<tbody>
+<tr th:each="phoneBook:${phoneBook}">
+<td th:text="${phoneBook.id}"></td>
+<td th:text="${phoneBook.name}"></td>
+<td th:text="${phoneBook.phoneNo}"></td>
+</tr>
+</tbody>
+</table>
+    
+     <script th:src="@{/webjars/jquery/3.4.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/4.3.1/js/bootstrap.min.js}"></script>
+    
+</body>
+</html>

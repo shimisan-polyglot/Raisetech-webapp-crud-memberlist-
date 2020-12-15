@@ -1,0 +1,10 @@
+CREATE DATABASE IF NOT EXISTS `memberlist`;
+USE `memberlist`;
+
+DROP TABLE IF EXISTS `phone_book`;
+CREATE TABLE `phone_book` (
+`id` INT(11) NOT NULL AUTO_INCREMENT,
+`name` VARCHAR(30) NOT NULL DEFAULT '',
+`phone_no` VARCHAR(30) NOT NULL DEFAULT '',
+PRIMARY KEY (`id`)
+)ENGINE =InnoDB;
